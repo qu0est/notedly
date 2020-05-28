@@ -28,13 +28,13 @@ const authLink = setContext((_, { headers }) => {
 
 //TODO check for a local token
 const data = {
-  isLoggedIn: !!localStorage.getItem('token');
+  isLoggedIn: !!localStorage.getItem('token')
 };
 
 //* write the cache data on initial load
 cache.writeData({ data });
 //! write the cache data after the cache is reset
-client.onResetStore.(() => cache.writeData({ data }));
+client.onResetStore(() => cache.writeData({ data }));
 
 //? configure Apollo Client
 const client = new ApolloClient ({
